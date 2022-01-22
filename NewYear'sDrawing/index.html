@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year's Drawing</title>
+    <style>
+        body {
+            background-image: url("/img/newyear.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            text-align: center;
+            color: burlywood;
+        }
+        
+        .lucky {
+            background-color: red;
+            font-size: 2em;
+            transition: font-size 1s;
+            display: inline-block;
+            color: white;
+            border-radius: 10%;
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        ul {
+            padding: 0px;
+            list-style: none;
+            text-align: center;
+            color: bisque;
+            font-style: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>WELCOME TO</h1>
+    <p>THE NEW YEAR'S DRAWING</p>
+    <input id="inputPerson" type="text">
+    <button id="btnAdd">Add</button>
+    <ul id="listPeople"></ul>
+    <button id="btnDraw">Draw</button>
+
+
+    <script>
+        let allPeople = [];
+        let luckyIndex = 0;
+        let btnAdd = document.getElementById("btnAdd");
+        let inputPerson = document.getElementById("inputPerson");
+        let listPeople = document.getElementById("listPeople");
+        let btnDraw = document.getElementById("btnDraw");
+
+        btnAdd.onclick = function() {
+            let person = inputPerson.value;
+            inputPerson.value = "";
+            allPeople.push(person);
+            list();
+        };
+
+        btnDraw.onclick = function() {
+            let lucky = document.getElementById(luckyIndex);
+            lucky.classList.remove("lucky");
+            luckyIndex = Math.floor(Math.random() * allPeople.length);
+            lucky = document.getElementById(luckyIndex);
+            lucky.classList.add("lucky");
+        };
+
+        function list() {
+            listPeople.innerHTML = "";
+            for (let i = 0; i < allPeople.length; i++) {
+                listPeople.innerHTML += `<li id="${i}" ondblclick="del(this)">${allPeople[i]}</li>`;
+            }
+        };
+
+        function del(li) {
+            allPeople.splice(li.id, 1);
+            list();
+        };
+    </script>
+
+</body>
+
+</html>

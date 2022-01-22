@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="site.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-home"></i> Logo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" title="News">
+                            <i class="fas fa-globe-americas"></i>
+                            <span class="d-md-none">News</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Account Settings">
+                            <i class="fas fa-user"></i>
+                            <span class="d-md-none">Account Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" title="Messages">
+                            <i class="fas fa-envelope"></i>
+                            <span class="d-md-none">Messages</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" title="Notifications" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="d-md-none">Notifications</span>
+                            <span class="badge bg-success rounded-pill notifications-count">3</span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">One new friend request</a></li>
+                            <li><a class="dropdown-item" href="#">John Doe posted on your wall</a></li>
+                            <li><a class="dropdown-item" href="#">Jane likes your post</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#" title="My Account">
+                            <i class="fas fa-user-circle"></i>
+                            <span class="d-md-none">My Account</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="shadow p-3 mb-4 rounded">
+                    <h5 class="text-center">My Profile</h5>
+                    <div class="text-center pt-1 pb-3 mb-2 border-bottom">
+                        <img src="https://picsum.photos/id/338/200/200" class="rounded-circle" width="106" height="106" alt="Profile Photo" />
+                    </div>
+                    <div class="py-2"><i class="fas fa-pencil-alt me-3 text-muted"></i>Designer, UI</div>
+                    <div class="py-2"><i class="fas fa-home me-3 text-muted"></i>London, UK</div>
+                    <div class="py-2"><i class="fas fa-birthday-cake me-3 text-muted"></i>April 1, 1988</div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="shadow p-3 mb-4 rounded">
+                    <p>Social Media template by bootstrap</p>
+                    <input type="text" class="form-control mb-2" placeholder="What's on your mind?" />
+                    <button class="btn btn-primary">
+                        <i class="fas fa-pencil-alt"></i> Post
+                    </button>
+                </div>
+
+                <div class="shadow p-3 mb-4 rounded">
+                    <div class="d-flex align-items-center border-bottom pb-2 mb-2">
+                        <img class="rounded-circle me-3" src="https://picsum.photos/id/996/200/200" width="48" height="48" alt="Profile Photo" /> June Doe
+                        <span class="ms-auto">1 min</span>
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim, velit iste debitis quo vitae dolore perspiciatis voluptas iusto. Earum, quibusdam? Repudiandae alias labore, similique nemo eveniet dolore sit. Asperiores, magnam.</p>
+                    <div class="row mb-2">
+                        <div class="col-md-6">
+                            <img src="https://picsum.photos/id/1025/600/400" alt="Photo 1" class="img-fluid" />
+                        </div>
+                        <div class="col-md-6">
+                            <img src="https://picsum.photos/id/128/600/400" alt="Photo 1" class="img-fluid" />
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-primary"><i class="fas fa-thumbs-up"></i> Like</button>
+                        <button class="btn btn-primary"><i class="fas fa-comment"></i> Comment</button>
+                    </div>
+                </div>
+
+                <div class="shadow p-3 mb-4 rounded">
+                    <div class="d-flex align-items-center border-bottom pb-2 mb-2">
+                        <img class="rounded-circle me-3" src="https://picsum.photos/id/64/200/200" width="48" height="48" alt="Profile Photo" /> Jane Doe
+                        <span class="ms-auto">16 min</span>
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim, velit iste debitis quo vitae dolore perspiciatis voluptas iusto. Earum, quibusdam? Repudiandae alias labore, similique nemo eveniet dolore sit. Asperiores, magnam.</p>
+                    <div class="mt-3">
+                        <button class="btn btn-primary"><i class="fas fa-thumbs-up"></i> Like</button>
+                        <button class="btn btn-primary"><i class="fas fa-comment"></i> Comment</button>
+                    </div>
+                </div>
+
+                <div class="shadow p-3 mb-4 rounded">
+                    <div class="d-flex align-items-center border-bottom pb-2 mb-2">
+                        <img class="rounded-circle me-3" src="https://picsum.photos/id/65/200/200" width="48" height="48" alt="Profile Photo" /> Angie Jane
+                        <span class="ms-auto">32 min</span>
+                    </div>
+                    <p>Have you seen this?</p>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <img src="https://picsum.photos/id/18/600/400" alt="Photo 1" class="img-fluid" />
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quo temporibus error praesentium assumenda vel hic laborum? Magni voluptatibus harum et, voluptate quae vitae laudantium fugiat cum molestiae dolore officia.</p>
+                    <div class="mt-3">
+                        <button class="btn btn-primary"><i class="fas fa-thumbs-up"></i> Like</button>
+                        <button class="btn btn-primary"><i class="fas fa-comment"></i> Comment</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="shadow p-3 mb-4 rounded">
+                    <p class="text-center">Upcoming Events:</p>
+                    <img src="https://picsum.photos/id/75/600/400" class="img-fluid" alt="">
+                    <p class="text-center mt-2 fw-bold">Holiday</p>
+                    <p class="text-center">Friday 15:00</p>
+                    <button class="btn btn-secondary w-100">Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>

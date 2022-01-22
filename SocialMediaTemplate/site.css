@@ -1,0 +1,12 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+@media (min-width: 768px) {
+    .notifications-count {
+        font-size: .45rem;
+        position: absolute;
+        top: .2rem;
+        right: -.2rem;
+    }
+}

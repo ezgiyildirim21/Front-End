@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Licorice&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>To-Do List</title>
+    <style>
+        html {
+            font-size: 24px;
+        }
+
+        body {
+            font-family: 'Licorice', cursive;
+        }
+
+        .done > span {
+            text-decoration: line-through;
+
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+            box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+        }
+
+        @media (max-width: 940px) {
+            .container {
+                margin: 1rem;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul>li {
+            line-height: 2;
+            display: flex;
+            align-items: center;
+        }
+
+        .delete {
+            margin-left: auto;
+            margin-right: .5rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        ul > li:hover .delete {
+            display: inline;
+        }
+
+        ul>li:nth-child(even) {
+            background-color: aliceblue;
+        }
+
+        input[type="checkbox"] {
+            margin-left: .5rem;
+        }
+
+        input[type="text"] {
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: border-box;
+        }
+
+        button {
+            background-color: coral;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Todos</h1>
+
+        <form id="frmNew">
+            <input id="txtTask" type="text" autocomplete="off" required placeholder="Type something to do..." />
+            <button id="add">Add</button>
+        </form>
+        <ul id="todos"></ul>
+    </div>
+    <script>
+
+        var todos = [];
+        var ulTodos = document.getElementById("todos");
+        var frm = document.getElementById("frmNew");
+        var txt = document.getElementById("txtTask");
+
+        function listTodos() {
+            todos.sort((a, b) => a.isDone - b.isDone);
+            save();
+            ulTodos.innerHTML = "";
+
+            for (var todo of todos) {
+                // ulTodos.innerHTML += `<li>${todo}</li>`;
+                var li = document.createElement("li");
+                if (todo.isDone) {
+                    li.classList.add("done");
+                }
+                li.todo = todo;
+                var chk = document.createElement("input");
+                chk.onchange = statusChanged;
+                chk.checked = todo.isDone;
+                chk.type = "checkbox";
+                li.appendChild(chk);
+                var span = document.createElement("span");
+                span.textContent = todo.task;
+                li.append(span);
+                
+                var btn = document.createElement("i");
+                btn.onclick = deleteClicked;
+                btn.classList.add("fas");
+                btn.classList.add("fa-times");
+                btn.classList.add("delete");
+                li.appendChild(btn);
+                // fas:font awesome standart
+                // fab: font awesome brand
+                ulTodos.appendChild(li);
+            }
+        }
+
+        function deleteClicked() {
+            var todo = this.parentNode.todo;
+            var index = todos.indexOf(todo);
+            todos.splice(index,1);
+            listTodos();
+        }
+
+        function statusChanged() {
+            this.parentNode.todo.isDone = this.checked;
+            listTodos();
+        };
+
+        function save() {
+            localStorage["data"] = JSON.stringify(todos);
+        }
+
+        function load() {
+            try {
+                todos = JSON.parse(localStorage["data"]);
+            } catch (error) {
+                todos = [{ task: "Do your homework", isDone: false }, { task: "Watch Netflix", isDone: true }];
+            }
+
+        }
+
+        frm.onsubmit = function (event) {
+            event.preventDefault();
+            var task = txt.value;
+            todos.unshift({ task: task, isDone: false });
+            listTodos();
+            txt.value = "";
+        }
+
+        load();
+        listTodos();
+    </script>
+</body>
+
+</html>
+
+<!-- js de nesneler {} ile yaratılır !!! -->
+
+<!--  function deleteTodo() {
+            let todo = localStorage.getItem("data");
+            todos = JSON.parse(todo);
+            todos.splice("data");
+            localStorage.setItem("data", JSON.stringify(todos));
+        }
+-->
